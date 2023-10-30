@@ -1,16 +1,21 @@
 import './App.css';
-import { Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-
-
+import Home from './pages/Home';
+import Contact from './pages/Contact';
 
 function App() {
 
   return (
     <>
+      <BrowserRouter>
         <Header />
-        <Outlet />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
         <footer>toto</footer>
+      </BrowserRouter>
     </>
   )
 }

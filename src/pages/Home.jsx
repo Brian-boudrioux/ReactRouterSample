@@ -1,19 +1,15 @@
-import { useState, useEffect } from "react"
-import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Home() {
 
-  const preLoadedData = useLoaderData();
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
 
-    console.info(preLoadedData);
-
     fetch("https://pokeapi.co/api/v2/pokemon/")
       .then(res => res.json())
       .then(data => setPokemons(data.results))
-  }, [preLoadedData]);
+  }, []);
 
   return (
     <main>
